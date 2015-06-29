@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>calculator App</title>
+</head>
+<body>
+  <h1>割り勘電卓</h1>
+  <p>支払額：<input type="text" id="amount"><p>
+  <p>人数：<input type="text" id="num"><p>
+  <p><input type="button" value="計算" onclick="getResult();"><p>
+  <p id="result"></p>
+  <script>
+    function getResult() {
+      var amount = document.getElementById('amount').value;
+      var num = document.getElementById('num').value;
+      console.log(amount);
+      console.log(num);
+      var unit = 100;
+      var x = Math.floor((amount / num) / unit) * unit;
+      var y = amount - (x * num);
+
+      var _x = Math.ceil((amount / num) / unit) * unit;
+      var _y = (_x * num) - amount;
+
+      document.getElementById('result').innerHTML =
+        '一人あたり'+ x +'円で' + y + '円足りないです' +
+        '一人あたり' + _x + '円で' + _y + '円余ります';
+    }
+  </script>
+</body>
+</html>
