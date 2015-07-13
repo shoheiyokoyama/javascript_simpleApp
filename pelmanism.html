@@ -121,7 +121,6 @@
             container = document.createElement('div');
             container.className = 'card-container';
             container.appendChild(card);
-
             return container;
       }
 
@@ -136,6 +135,7 @@
             return;
         }
         flipCount++;
+
         if (flipCount % 2 === 1) {
           firstCard = card;
         } else {
