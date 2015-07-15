@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>king game</title>
+</head>
+<body>
+  <h1>King Game!!!!</h1>
+  <p>The number of people: <input type="text" id="num"></p>
+  <p><input type="button" value="King say.." onclick="kingSaid();"></p>
+  <p id="result"></p>
+  <script>
+    function kingSaid() {
+      var orders = [
+        'ほめたおす',
+        'キスをする',
+        'ものまねをする',
+        'けなす'
+      ];
+      var order = orders[Math.floor(Math.random() * orders.length)];
+
+      var num = document.getElementById('num').value;
+      var activPerson = Math.floor(Math.random() * (num)) + 1;
+      var passivePerson;
+
+      if (num < 2) {
+        passivePerson = 1;
+      } else {
+          do {
+            passivePerson = Math.floor(Math.random() * (num)) + 1;
+          } while (activPerson == passivePerson);
+    }
+
+      document.getElementById('result').innerHTML =
+      '#' + activPerson + 'の人が、#' + passivePerson + 'の人に' + order;
+    }
+  </script>
+</body>
+</html>
